@@ -10,12 +10,12 @@ import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
-public class TestController {
+public class UserController {
 
     final IUserService iTestService;
 
     @Autowired
-    public TestController(IUserService iTestService) {
+    public UserController(IUserService iTestService) {
         this.iTestService = iTestService;
     }
 
