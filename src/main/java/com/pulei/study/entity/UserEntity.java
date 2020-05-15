@@ -1,4 +1,4 @@
-package com.pulei.study.Entity;
+package com.pulei.study.entity;
 
 
 import javax.persistence.*;

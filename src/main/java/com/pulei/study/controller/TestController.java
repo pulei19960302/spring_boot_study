@@ -1,9 +1,12 @@
 package com.pulei.study.controller;
 
+import com.pulei.study.entity.UserEntity;
 import com.pulei.study.service.ITestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class TestController {
@@ -15,9 +18,9 @@ public class TestController {
         this.iTestService = iTestService;
     }
 
-    @GetMapping("/say_hello")
-    private String sayHello () {
-        return iTestService.sayHello();
+    @GetMapping("/find_all")
+    private List<UserEntity> sayHello () {
+        return iTestService.findAll();
     }
 
 }
