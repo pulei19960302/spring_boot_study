@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ITestService {
     List<UserEntity> findAll();
+
+    UserEntity addUser(UserEntity userEntity);
 }

@@ -22,4 +22,10 @@ public class TestService implements ITestService {
     public List<UserEntity> findAll() {
         return iUserRepository.findAll();
     }
+
+    @Override
+    public UserEntity addUser(UserEntity userEntity) {
+        iUserRepository.save(userEntity);
+        return userEntity;
+    }
 }

@@ -8,11 +8,11 @@ spring:
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database: mysql
+    database: mysql # 数据库类型
     #打印sql
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: update #表的操作
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
