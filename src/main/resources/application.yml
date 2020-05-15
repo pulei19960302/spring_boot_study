@@ -10,14 +10,13 @@ spring:
     hikari:
       minimum-idle: 3
       maximum-pool-size: 10
-      max-lifetime: 30000 # ²»ÄÜĞ¡ÓÚ30s ·ñÔòÄ¬ÈÏ»Øµ½1800Ãë
+      max-lifetime: 30000
       connection-test-query: SELECT 1
   jpa:
-    database: mysql # Êı¾İ¿âÀàĞÍ
-    #´òÓ¡sql
+    database: mysql
     show-sql: true
     hibernate:
-      ddl-auto: update #±íµÄ²Ù×÷
+      ddl-auto: update #æ•°æ®åº“æ›´æ–°ç­–ç•¥
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
