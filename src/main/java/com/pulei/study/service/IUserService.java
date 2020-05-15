@@ -4,8 +4,12 @@ import com.pulei.study.entity.UserEntity;
 
 import java.util.List;
 
-public interface ITestService {
+public interface IUserService {
     List<UserEntity> findAll();
 
     UserEntity addUser(UserEntity userEntity);
+
+    void delUser(Integer id);
+
+    UserEntity findById (Integer id);
 }
