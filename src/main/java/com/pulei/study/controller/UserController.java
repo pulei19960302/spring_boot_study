@@ -20,12 +20,12 @@ public class UserController {
     }
 
     @GetMapping("/find_user")
-    private ResponseEntity<UserEntity> findById(@PathParam(value = "id") int id) {
+    private ResponseEntity<UserEntity> findByIdUser(@PathParam(value = "id") int id) {
         return ResponseEntity.ok(iTestService.findById(id));
     }
 
     @GetMapping("/find_all")
-    private ResponseEntity<List<UserEntity>> sayHello () {
+    private ResponseEntity<List<UserEntity>> findAllUser () {
         return ResponseEntity.ok(iTestService.findAll());
     }
 
