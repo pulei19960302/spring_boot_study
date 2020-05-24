@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -38,6 +39,16 @@ public class UserController {
     @DeleteMapping("/del_user")
     private void delUser(@PathParam(value = "id") int id) {
         iTestService.delUser(id);
+    }
+
+    @GetMapping("/login_user")
+    private ResponseEntity<HashMap<String, Object>> login() {
+        UserEntity userEntity = iTestService.findById(1);
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("message", "登录成功");
+        hashMap.put("code", 201);
+        hashMap.put("data", userEntity);
+        return ResponseEntity.ok(hashMap);
     }
 
 }
