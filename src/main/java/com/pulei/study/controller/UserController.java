@@ -62,4 +62,14 @@ public class UserController {
         return ResponseEntity.ok(hashMap);
     }
 
+    @GetMapping("/login_user")
+    private ResponseEntity<HashMap<String, Object>> login() {
+        UserEntity userEntity = iTestService.findById(1);
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("message", "登录成功");
+        hashMap.put("code", 201);
+        hashMap.put("data", userEntity);
+        return ResponseEntity.ok(hashMap);
+    }
+
 }
