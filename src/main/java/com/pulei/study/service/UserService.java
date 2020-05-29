@@ -31,9 +31,7 @@ public class UserService implements IUserService {
 
     @Override
     public void delUser(Integer id) {
-        UserEntity userEntity = iUserRepository.findById(id).orElse(null);
-        assert userEntity != null;
-        iUserRepository.delete(userEntity);
+        iUserRepository.findById(id).ifPresent(iUserRepository::delete);
     }
 
     @Override

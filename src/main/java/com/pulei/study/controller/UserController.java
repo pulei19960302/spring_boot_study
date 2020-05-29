@@ -3,6 +3,7 @@ package com.pulei.study.controller;
 import com.pulei.study.entity.UserEntity;
 import com.pulei.study.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,8 +38,9 @@ public class UserController {
     }
 
     @DeleteMapping("/del_user")
-    private void delUser(@PathParam(value = "id") int id) {
+    private ResponseEntity<Void> delUser(@PathParam(value = "id") int id) {
         iTestService.delUser(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/login_user")
