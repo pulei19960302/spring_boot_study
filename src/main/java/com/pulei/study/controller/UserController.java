@@ -5,11 +5,13 @@ import com.pulei.study.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class UserController {
@@ -44,12 +46,19 @@ public class UserController {
     }
 
     @GetMapping("/login_user")
-    private ResponseEntity<HashMap<String, Object>> login() {
-        UserEntity userEntity = iTestService.findById(1);
+    private ResponseEntity<HashMap<String, Object>> login(@PathParam(value = "id") int id) {
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("message", "登录成功");
-        hashMap.put("code", 201);
-        hashMap.put("data", userEntity);
+
+        UserEntity userEntity = iTestService.findById(id);
+        if (StringUtils.isEmpty(userEntity)) {
+            hashMap.put("message", "登陆失败");
+            hashMap.put("code", 201);
+            hashMap.put("data", userEntity);
+        } else {
+            hashMap.put("message", "登录成功");
+            hashMap.put("code", 200);
+            hashMap.put("data", userEntity);
+        }
         return ResponseEntity.ok(hashMap);
     }
 
